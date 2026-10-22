@@ -5,9 +5,10 @@ import { ref } from 'vue';
 
 
 const props=defineProps({
-    categoriesx:Array
+    categoriesx:Array,
+    active:Number
 })
-const Produit=ref('')
+const emit=defineEmits(['choisir'])
 </script>
 
 <template>
@@ -28,15 +29,15 @@ const Produit=ref('')
 
      <div class="categories" >
       <button  v-for="category in (props.categoriesx)" :key="category.id" class="category"  :style="{'--category-color':category.color}"
-      @click="Produit=category.name">
+      @click="emit('choisir',category.id)">
        <img :alt="category.name" height="48" 
        :src="'/assets' +category.image" width="56" />
        
        <span>
         {{category.name}}
        </span>
+       {{ category.id }}
     </button>   
-           {{ Produit }}
    
      </div>
     </section>

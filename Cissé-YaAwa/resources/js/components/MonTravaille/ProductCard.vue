@@ -3,11 +3,11 @@
 <script setup>
 
     const props = defineProps({
-        produits:Array
+        produitAvant:Array,
+        produits:Array,
     });
 
     function verifyDisponible(){
-
     }
 
 </script>
@@ -35,7 +35,7 @@
      </div>
      <div class="product-grid">
         <!-- DEMANDE 02 / 05 — À PROGRAMMER : Transformer cette carte en ProductCard, déclarer les props et émettre add. Répéter les cartes depuis les données. -->
-        <article v-for="produit in produits" :key="produit.id" class="product-card" data-component="ProductCard" data-product-id="1">
+        <article v-for="produit in produitAvant" :key="produit.id" class="product-card" data-component="ProductCard" data-product-id="1">
         <div class="product-media">
             <a aria-label="Voir Riz brisé parfumé" href="">
             <img :alt="produit.name" height="240" loading="lazy" :src="'assets' + produit.image" width="360"/>

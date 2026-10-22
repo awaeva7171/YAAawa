@@ -13,11 +13,15 @@ use Illuminate\Database\Eloquent\Model;
 class CatalogController extends Controller
 {
      function index()  {
-        $produits = Product::all();
-        $categories = Category::all();
+     $products = Product::all() ;       
+            
+     
+      $categories = Category::orderBy('id')        
+      ->get();        
+      
         $zones = DeliveryZone::all();
         // var_dump($produits);
-        return Inertia::render('Welcome',['produits'=>$produits,
+        return Inertia::render('Welcome',['produits'=>$products,
                                         'categories'=>$categories,
                                         'deliveryzones'=>$zones]);
      }

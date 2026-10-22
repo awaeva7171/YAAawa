@@ -2,21 +2,16 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Category;
 use App\Models\Product;
 
-
 class ProductSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $ids = Category::pluck('id', 'name');
-        
+
         $products = [
             [
                 'category_id' => $ids['Céréales'],
@@ -27,6 +22,9 @@ class ProductSeeder extends Seeder
                 'price' => 17500,
                 'sale_price' => null,
                 'stock' => 18,
+                'description' => 'Riz brisé parfumé, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
             ],
             [
                 'category_id' => $ids['Légumes'],
@@ -37,6 +35,22 @@ class ProductSeeder extends Seeder
                 'price' => 750,
                 'sale_price' => 700,
                 'stock' => 4,
+                'description' => 'Oignons de Potou, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
+            ],
+            [
+                'category_id' => $ids['Céréales'],
+                'name' => 'Mil local',
+                'origin' => 'Kaolack',
+                'unit' => 'kg',
+                'image' => '/images/mil.svg',
+                'price' => 800,
+                'sale_price' => null,
+                'stock' => 24,
+                'description' => 'Mil local, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
             ],
             [
                 'category_id' => $ids['Céréales'],
@@ -47,6 +61,48 @@ class ProductSeeder extends Seeder
                 'price' => 2200,
                 'sale_price' => 2000,
                 'stock' => 12,
+                'description' => 'Fonio précuit, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
+            ],
+            [
+                'category_id' => $ids['Céréales'],
+                'name' => 'Maïs en grains',
+                'origin' => 'Tambacounda',
+                'unit' => 'kg',
+                'image' => '/images/mais.svg',
+                'price' => 650,
+                'sale_price' => null,
+                'stock' => 30,
+                'description' => 'Maïs en grains, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Légumes'],
+                'name' => 'Tomates fraîches',
+                'origin' => 'Niayes',
+                'unit' => 'kg',
+                'image' => '/images/tomates.svg',
+                'price' => 1000,
+                'sale_price' => null,
+                'stock' => 16,
+                'description' => 'Tomates fraîches, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Légumes'],
+                'name' => 'Carottes',
+                'origin' => 'Niayes',
+                'unit' => 'kg',
+                'image' => '/images/carottes.svg',
+                'price' => 900,
+                'sale_price' => null,
+                'stock' => 7,
+                'description' => 'Carottes, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
             ],
             [
                 'category_id' => $ids['Légumes'],
@@ -57,6 +113,9 @@ class ProductSeeder extends Seeder
                 'price' => 1200,
                 'sale_price' => null,
                 'stock' => 0,
+                'description' => 'Gombo frais, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
             ],
             [
                 'category_id' => $ids['Épicerie'],
@@ -67,6 +126,48 @@ class ProductSeeder extends Seeder
                 'price' => 4500,
                 'sale_price' => 4200,
                 'stock' => 20,
+                'description' => 'Huile d’arachide, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
+            ],
+            [
+                'category_id' => $ids['Épicerie'],
+                'name' => 'Sucre en poudre',
+                'origin' => 'Démonstration',
+                'unit' => 'kg',
+                'image' => '/images/sucre.svg',
+                'price' => 650,
+                'sale_price' => null,
+                'stock' => 32,
+                'description' => 'Sucre en poudre, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Épicerie'],
+                'name' => 'Sel iodé',
+                'origin' => 'Démonstration',
+                'unit' => 'sachet de 500 g',
+                'image' => '/images/sel.svg',
+                'price' => 300,
+                'sale_price' => null,
+                'stock' => 45,
+                'description' => 'Sel iodé, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Épicerie'],
+                'name' => 'Pâte d’arachide',
+                'origin' => 'Kaolack',
+                'unit' => 'pot de 500 g',
+                'image' => '/images/pate.svg',
+                'price' => 1500,
+                'sale_price' => null,
+                'stock' => 5,
+                'description' => 'Pâte d’arachide, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
             ],
             [
                 'category_id' => $ids['Poisson'],
@@ -77,6 +178,48 @@ class ProductSeeder extends Seeder
                 'price' => 4500,
                 'sale_price' => null,
                 'stock' => 8,
+                'description' => 'Thiof, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
+            ],
+            [
+                'category_id' => $ids['Poisson'],
+                'name' => 'Sardinelles',
+                'origin' => 'Kayar',
+                'unit' => 'kg',
+                'image' => '/images/sardinelles.svg',
+                'price' => 1200,
+                'sale_price' => 1000,
+                'stock' => 25,
+                'description' => 'Sardinelles, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Poisson'],
+                'name' => 'Crevettes',
+                'origin' => 'Casamance',
+                'unit' => 'kg',
+                'image' => '/images/crevettes.svg',
+                'price' => 6500,
+                'sale_price' => null,
+                'stock' => 0,
+                'description' => 'Crevettes, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Poisson'],
+                'name' => 'Poisson fumé',
+                'origin' => 'Saint-Louis',
+                'unit' => 'sachet de 500 g',
+                'image' => '/images/fume.svg',
+                'price' => 3000,
+                'sale_price' => null,
+                'stock' => 6,
+                'description' => 'Poisson fumé, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
             ],
             [
                 'category_id' => $ids['Saveurs locales'],
@@ -87,6 +230,9 @@ class ProductSeeder extends Seeder
                 'price' => 1200,
                 'sale_price' => null,
                 'stock' => 22,
+                'description' => 'Bissap séché, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
             ],
             [
                 'category_id' => $ids['Saveurs locales'],
@@ -97,11 +243,40 @@ class ProductSeeder extends Seeder
                 'price' => 1800,
                 'sale_price' => 1600,
                 'stock' => 13,
+                'description' => 'Bouye en poudre, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => true,
+            ],
+            [
+                'category_id' => $ids['Saveurs locales'],
+                'name' => 'Café Touba',
+                'origin' => 'Démonstration',
+                'unit' => 'sachet de 500 g',
+                'image' => '/images/cafe.svg',
+                'price' => 2500,
+                'sale_price' => null,
+                'stock' => 18,
+                'description' => 'Café Touba, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => true,
+                'featured' => false,
+            ],
+            [
+                'category_id' => $ids['Saveurs locales'],
+                'name' => 'Madd en conserve',
+                'origin' => 'Casamance',
+                'unit' => 'pot de 400 g',
+                'image' => '/images/madd.svg',
+                'price' => 2000,
+                'sale_price' => null,
+                'stock' => 9,
+                'description' => 'Madd en conserve, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
+                'active' => false,
+                'featured' => false,
             ],
         ];
 
-         foreach ($products as $product) {
-            Product::create($product + ['featured' => true]);
+        foreach ($products as $product) {
+            Product::create($product);
         }
     }
 }

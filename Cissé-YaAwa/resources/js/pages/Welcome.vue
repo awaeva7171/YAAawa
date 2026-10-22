@@ -2,21 +2,28 @@
 import CategoriesComposant from '@/components/MonTravaille/CategoriesComposant.vue';
 import Header from '@/components/MonTravaille/Header.vue';
 import ProductCard from '@/components/MonTravaille/ProductCard.vue';
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 
     const props = defineProps({
         categories:Array,
         produits:Array,
         deliveryzones:Array
     })
-     console.log(props.categories);
+const produitAvant = props.produits.filter(p => p.featured == 1)
 
+// console.table(produitAvant)
+    
+const categorieChoisie=ref(null);
+
+const produitFiltres=computed(()=>{
+    if(categorieChoisie.value===null)return produitAvant;
+    return props.produits.filter(p=>p.category_id===categorieChoisie.value);
+})
     
 </script>
 
 <template>
     <div>
-        
         
  
  
@@ -95,10 +102,19 @@ import { computed } from 'vue';
      </div>
     </section>
     <!-- deuxieme -->
-     <CategoriesComposant :categoriesx="props.categories"></CategoriesComposant>
+     <CategoriesComposant 
+     :categoriesx="props.categories"
+     :active="categorieChoisie"
+     @choisir="categorieChoisie">
+    
+    </CategoriesComposant>
 
   <!-- troisieme -->
-   <ProductCard :produits="props.produits"/>
+   <ProductCard 
+   :produitFiltres="produitFiltres"
+
+   
+   />
     <section class="loyalty-banner mt">
      <div>
       <p class="overline">
