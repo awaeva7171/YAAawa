@@ -99,7 +99,7 @@ class ProductSeeder extends Seeder
                 'image' => '/images/carottes.svg',
                 'price' => 900,
                 'sale_price' => null,
-                'stock' => 7,
+                'stock' => 1,
                 'description' => 'Carottes, une sélection pour les repas et les moments de partage. Prix et provenance fictifs pour cet exercice.',
                 'active' => true,
                 'featured' => false,

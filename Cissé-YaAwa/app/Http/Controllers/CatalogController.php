@@ -12,17 +12,32 @@ use Illuminate\Database\Eloquent\Model;
 
 class CatalogController extends Controller
 {
-     function index()  {
-     $products = Product::all() ;       
-            
-     
+     function index(Request $request)  {
+     $products = Product::where('active', true)
+    ->orderBy('name')
+    ->get();      
       $categories = Category::orderBy('id')        
       ->get();        
       
         $zones = DeliveryZone::all();
         // var_dump($produits);
-        return Inertia::render('Welcome',['produits'=>$products,
+        return Inertia::render('Catalog',['produits'=>$products,
                                         'categories'=>$categories,
-                                        'deliveryzones'=>$zones]);
+                                        'deliveryzones'=>$zones,
+                                        ]);
+     }
+
+     function boutique()  {
+     // $products = Product::all() ;
+     $products = Product::where('active', true)
+    ->orderBy('name')
+    ->get();       
+      $categories = Category::orderBy('id')        
+      ->get();        
+              // var_dump($produits);
+        return Inertia::render('Boutique',['produits'=>$products,
+                                        'categories'=>$categories,
+                                        ]);
      }
 }
+

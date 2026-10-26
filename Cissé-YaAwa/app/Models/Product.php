@@ -20,6 +20,14 @@ class Product extends Model
                         'active', 
                         'category_id'
                         ];
+                        
+    protected $casts = [
+    'price' => 'integer',
+    'sale_price' => 'integer',
+    'stock' => 'integer',
+    'active' => 'boolean',
+    'featured' => 'boolean',
+];
     
     public function category() :BelongsTo{
         return $this->belongsto(Category::class);

@@ -1,6 +1,7 @@
 
 
 <script setup>
+import { Link } from '@inertiajs/vue3';
 
 </script>
 
@@ -14,7 +15,7 @@
   </div>
   <header class="site-header" data-component="AppHeader">
    <div class="container header-inner">
-    <a aria-label="Teranga Market — Accueil" class="brand" href="index.html">
+    <Link aria-label="Teranga Market — Accueil" class="brand" href="/boutique">
      <img alt="" height="42" src="assets/logo.svg" width="42"/>
      <span>
       teranga
@@ -22,11 +23,11 @@
        market.
       </b>
      </span>
-    </a>
+    </Link>
     <nav aria-label="Navigation principale">
-     <a class="is-active" href="boutique.html">
+     <Link class="is-active" href="/boutique">
       Le marché
-     </a>
+     </Link>
      <a href="suivre.html">
       Suivre ma commande
      </a>

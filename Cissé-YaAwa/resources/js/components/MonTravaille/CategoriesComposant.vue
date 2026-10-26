@@ -1,7 +1,6 @@
 
 
 <script setup>
-import { ref } from 'vue';
 
 
 const props=defineProps({
@@ -20,13 +19,13 @@ const emit=defineEmits(['choisir'])
         À CHAQUE ENVIE, SON RAYON
        </p>
        <h2>
-        De quoi se régaler
+        De quoi se régaler  
        </h2>
       </div>
      </div>
      <!-- DEMANDE 01 / 03 — À PROGRAMMER : Utiliser les catégories de l’API pour les images, la couleur CSS et le filtre. -->
 
-
+<!-- recuperer les produits de la catégorie choisie -->
      <div class="categories" >
       <button  v-for="category in (props.categoriesx)" :key="category.id" class="category"  :style="{'--category-color':category.color}"
       @click="emit('choisir',category.id)">
@@ -36,7 +35,6 @@ const emit=defineEmits(['choisir'])
        <span>
         {{category.name}}
        </span>
-       {{ category.id }}
     </button>   
    
      </div>
@@ -45,7 +43,7 @@ const emit=defineEmits(['choisir'])
 </template>
 
 <style scoped>
-.noir{
+/* .noir{
   background: #000;
-}
+} */
 </style>

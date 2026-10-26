@@ -3,31 +3,37 @@ import CategoriesComposant from '@/components/MonTravaille/CategoriesComposant.v
 import Header from '@/components/MonTravaille/Header.vue';
 import ProductCard from '@/components/MonTravaille/ProductCard.vue';
 import { computed, ref } from 'vue';
+import {Link} from '@inertiajs/vue3'
+
 
     const props = defineProps({
         categories:Array,
         produits:Array,
         deliveryzones:Array
     })
-const produitAvant = props.produits.filter(p => p.featured == 1)
+// const produitAvant = props.produits.filter(p => p.featured == 1)
+const produitAvant = computed(() => {
+  return props.produits.filter(p => p.featured == 1)
+    .slice(0, 8)
+})
 
 // console.table(produitAvant)
+// function pour filtrer les produits selon la catégorie choisie et le bouton "tout le marché" qui affiche tous les produits
     
-const categorieChoisie=ref(null);
 
+const categorieChoisie = ref(null);
 const produitFiltres=computed(()=>{
-    if(categorieChoisie.value===null)return produitAvant;
-    return props.produits.filter(p=>p.category_id===categorieChoisie.value);
-})
-    
+    if(categorieChoisie.value===null)return produitAvant.value;
+    return props.produits.filter(p => p.category_id === categorieChoisie.value);
+});
+
+
+
 </script>
 
 <template>
     <div>
-        
  
- 
- <body data-page="index.html" id="page-top">
   <!--
  TERANGA MARKET — TEMPLATE ÉTUDIANT — M. Aly Tall Niang
  Demandes associées : 01, 02, 05, 06, 07, 18, 19
@@ -39,7 +45,9 @@ const produitFiltres=computed(()=>{
   <a class="skip-link" href="#main-content">
    Aller au contenu
   </a>
+
   <!-- premier -->
+
 <Header/>
   <main id="main-content" tabindex="-1">
    <div class="container page-space">
@@ -58,6 +66,7 @@ const produitFiltres=computed(()=>{
         À portée de main.
        </em>
       </h1>
+
       <p>
        Du riz pour le ceebu jën, du bissap à partager… Retrouvez vos essentiels chez Awa, avec toute la teranga.
       </p>
@@ -68,6 +77,7 @@ const produitFiltres=computed(()=>{
         </path>
        </svg>
       </a>
+
       <div class="hero-proof">
        <span>
         <svg aria-hidden="true" class="icon" fill="none" height="15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" viewbox="0 0 24 24" width="15">
@@ -104,14 +114,35 @@ const produitFiltres=computed(()=>{
     <!-- deuxieme -->
      <CategoriesComposant 
      :categoriesx="props.categories"
-     :active="categorieChoisie"
-     @choisir="categorieChoisie">
+     @choisir="categorieChoisie = $event">
     
     </CategoriesComposant>
 
+    
+     <div class="section-heading">
+      <div>
+       <p class="overline">
+        LA SÉLECTION 💖💖💖D’AWA_EVA💖💖💖
+       </p>
+       <h2 class="eve">
+        Nos produits du moment
+       </h2>
+      </div>
+
+       <Link class="text-button" href="/boutique">
+       Tout le marché ->
+       </Link>
+      
+     </div>
+    
   <!-- troisieme -->
+   <p v-if="produitFiltres.length === 0" class="state">
+  Aucun produit à présenter pour le moment.
+</p>
+
    <ProductCard 
-   :produitFiltres="produitFiltres"
+   v-else :produitFiltres="produitFiltres"
+   @tous="produitFiltres "
 
    
    />
@@ -444,7 +475,12 @@ const produitFiltres=computed(()=>{
     </div>
    </div>
   </section>
- </body>
         
     </div>
 </template>
+
+<style scoped>
+.eve{
+    color: rgba(228, 160, 13, 0.877);
+}
+</style>

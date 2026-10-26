@@ -2,14 +2,14 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  @class(['dark' => ($appearance ?? 'system') == 'dark'])>
     <head>
          <meta charset="utf-8"/>
-            <meta content="width=device-width, initial-scale=1" name="viewport"/>
+            <!-- <meta content="width=device-width, initial-scale=1" name="viewport"/>
             <meta content="Bienvenue chez Awa — maquette pédagogique Teranga Market, HTML et CSS sans JavaScript." name="description"/>
             <title>
             Bienvenue chez Awa | Teranga Market
             </title>
             <link href="assets/logo.svg" rel="icon" type="image/svg+xml"/>
             <link href="assets/css/styles.css" rel="stylesheet"/>
-            <link href="assets/css/template.css" rel="stylesheet"/>
+            <link href="assets/css/template.css" rel="stylesheet"/> -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
